@@ -1,0 +1,251 @@
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Gestión de Recargo al Consumo
+        <small> </small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-th"></i> Home</a></li>
+        <li class="active">Gestión de RC</li>
+      </ol>
+    </section>
+
+ <div> 
+ <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-pencil"></i> Distribucion de Recargo al Consumo por Empleado
+            <small class="pull-right">Fecha: <span id='date'></span></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+
+      <div class="row invoice-info">
+      <form name='frm-1' id='frm-1' method='post' onsubmit='' action=''> 
+       
+        <!-- title row -->
+        <div class="col-sm-12 invoice-col">
+         <div class="row">
+
+          <!-- <input id='txtId' type="hidden" class="form-control"> -->
+
+          <div class="col-sm-2 invoice-col">
+            <div class="form-group">
+              <label for="exampleInputEmail">A&ntilde;o</label>
+              <select id="cboAnio" name="anio" class="form-control">
+                <option value="0">Seleccione</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>                
+              </select>
+            </div>           
+          </div>
+
+          <div class="col-sm-4 invoice-col">
+            <div class="form-group">
+              <label for="exampleInputEmail">Mes</label>
+              <select id="cboMes" name="anio" class="form-control">
+              <option value="0">Seleccione</option>
+                <option value='1'>Supervisor</option>
+                <option value='2'>Jefe De Operaciones</option>
+                <option value='3'>Mantenimiento</option>
+                <option value='4'>Sandwich</option>
+                <option value='5'>Caja</option>
+                <option value='6'>Mesa</option>
+                <option value='7'>Barra</option>
+                <option value='8'>J. Sandwich</option>
+                <option value='9'>Vitrina</option>
+                <option value='10'>Jugos</option>
+                <option value='11'>Apoyo</option>
+                <option value='12'>Asistente</option>
+                <option value='13'>Atencion</option>
+                <option value='14'>Dise&ntilde;o Web</option>
+                <option value='15'>Encargada</option>
+                <option value='16'>J. Mesa</option>
+                <option value='17'>Asist Sec</option>
+                <option value='18'>Operarios</option>
+                <option value='19'>Cocina</option>
+                <option value='20'>Guardiania/Alm</option>
+                <option value='21'>Chofer</option>
+                <option value='22'>Jefe De Sec</option>
+                <option value='23'>Enc Sec</option>
+                <option value='24'>Jefe De Area</option>
+                <option value='25'>Produccion</option>
+                <option value='26'>Compras</option>
+                <option value='28'>Asistente Contable</option>
+                <option value='29'>Auxiliar Contable</option>
+                <option value='30'>Jefe De Cont</option>
+                <option value='31'>Gerente General</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="col-sm-2 invoice-col">
+            <div class="form-group">
+              <button id="btn-cargar" type="button" class="btn btn-success"> <i class="fa fa-save"></i> Cargar</button>
+              <!-- <button id="btn-clear" type="button" class="btn btn-default"> <i class='fa fa-eraser'></i> Limpiar </button> -->
+            </div>
+          </div>
+
+
+          <div class="col-sm-4 invoice-col">
+          <label for="exampleInputEmail">Monto a Distribuir:  </label> <span id='presupuesto'></span>
+          </div>
+
+
+
+        </div>
+         <!-- /.col -->
+       </div>
+
+      <!-- Segunda fila -->
+
+        <div class="col-sm-12 invoice-col">
+         <div class="row">
+
+          <div class="col-sm-2 invoice-col">
+            <div class="form-group">
+              <label for="exampleInputEmail">Mes</label>
+              <select id="cboMes" name="anio" class="form-control">
+                <option value="0">Seleccione</option>
+                <option value="01">Enero</option>
+                <option value="02">Febrero</option>
+                <option value="03">Marzo</option>
+                <option value="04">Abril</option>
+                <option value="05">Mayo</option>
+                <option value="06">Junio</option>
+                <option value="07">Julio</option>
+                <option value="08">Agosto</option>
+                <option value="09">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+         <!-- /.col -->
+       </div>       
+
+      </form>
+      </div>
+
+       <div class="row invoice-info">
+        <div class="col-sm-12 invoice-col">
+          <div class="box box-success">
+           <div id='div-responsive' class="table-responsive mailbox-messages">  
+            <table class="table table-hover table-striped">
+              <tr><th colspan="8"> <i class='fa fa-bars'></i> Lista de Areas</th></tr>
+            </table>
+           </div>
+           <div>
+            <div class="box-body">
+              <table id="tabla-datos" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Puntos de Cargo</th>
+                  <th>Detalle de Cargo</th>
+                  <th>Codigo</th>
+                  <th>Apellidos y Nombres</th>
+                  <th>Antiguedad</th>                  
+                  <th>Puntos Servicio</th>
+                  <th>Promedio Local</th>
+                  <th>Dias</th>
+                  <th>Monto Servicio</th>
+                  <th>Logro de Metas</th>
+                  <th>Servicio X Basico</th>
+                  <th>Montos Adicionales</th>
+                  <th>Monto Abonar</th>
+                </tr>
+                </thead>
+                <tbody id="body-listado">
+                </tbody>
+              </table>
+            </div>
+           </div>
+          </div>
+        </div>
+       </div>
+
+<!-- Panel de Actualizacion de Datos -->       
+      <div class="row invoice-info">
+      <form name='frm-1' id='frm-1' method='post' onsubmit='' action=''> 
+       
+        <!-- title row -->
+        <div class="col-sm-12 invoice-col">
+         <div class="row">
+
+          <input id='empleadoId' type="hidden" class="form-control">
+          <input id='txtFecha' type="hidden" class="form-control">
+          <input id='montoServicio' type="hidden" class="form-control">
+
+         <div class="row">          
+
+          <div class="col-sm-2 invoice-col">
+            <div class="form-group">
+              <label for="txtSubtotal">Subtotal</label>
+              <input id="txtSubtotal" type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+         <!-- /.col -->
+
+         <div class="row">
+
+          <div class="col-sm-2 invoice-col">
+            <div class="form-group">
+              <label for="txtMontoAdicional">Monto Adicional</label>
+              <input id="txtMontoAdicional" type="text" class="form-control" placeholder="Ingrese monto">
+            </div>
+          </div>           
+
+        </div>
+         <!-- /.col -->
+
+         <div class="row">
+
+          <div class="col-sm-2 invoice-col">
+            <div class="form-group">
+              <label for="txtMontoAbonar">Monto a Abonar</label>
+              <input id="txtMontoAbonar" type="text" class="form-control" >
+            </div>
+          </div>           
+
+        </div>
+         <!-- /.col -->         
+
+          <div class="col-sm-12 invoice-col">
+            <div class="form-group">
+              <button id="btn-calcular" type="button" class="btn btn-success"> <i class="fa fa-save"></i> Calcular</button>
+              <button id="btn-guardar" type="button" class="btn btn-success"> <i class="fa fa-save"></i> Guardar</button>
+              <!-- <button id="btn-clear" type="button" class="btn btn-default"> <i class='fa fa-eraser'></i> Limpiar </button> -->
+            </div>
+          </div>
+
+
+       </div>
+
+      </form>
+      </div>
+
+
+ </section>
+</div>
+ <!-- /.content -->
+
+<script>
+  $(document).ready(function(){
+  //$(function () {
+    $('#date').html($.datepicker.formatDate('dd/mm/yy', new Date()));    
+
+    var actualizar = new DistribuirPorEmpleado();
+    actualizar.funciones();
+    //actualizar.loadAlerta();
+
+  })
+</script>

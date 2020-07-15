@@ -1,0 +1,108 @@
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Gestión de Recargo al Consumo
+        <small> </small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-th"></i> Home</a></li>
+        <li class="active">Gestión de RC</li>
+      </ol>
+    </section>
+
+ <div> 
+ <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-pie-chart"></i> Distribucion de RC por Mes/A&ntilde;o
+            <small class="pull-right">Fecha: <span id='date'></span></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+
+      <div class="row invoice-info">
+      <form name='frm-1' id='frm-1' method='post' onsubmit='' action='' novalidate="true"> 
+       
+        <!-- title row -->
+        <div class="col-sm-12 invoice-col">
+         <div class="row"> 
+          
+          <div class="col-sm-3 invoice-col">
+            <div class="form-group">
+              <label for="exampleInputEmail">A&ntilde;o <span class="text-danger"></span></label>
+              <input id='txtAnio' name="txtAnio" type="number" class="form-control" placeholder="Ingrese el a&ntilde;o">
+            </div>
+          </div>                    
+
+          <div class="col-sm-3 invoice-col">
+            <div class="form-group">
+              <label for="exampleInputEmail1">&nbsp;</label>
+              <button id="btn-mostrar" type="button"  class="btn btn-success form-control"> <i class="fa fa-cog"></i> &nbsp;Mostrar resultado</button>
+            </div>
+         </div>
+
+         <div class="col-sm-12 invoice-col">
+            <div class="form-group">
+              <!-- <label for=""><span class="text-danger">(*)</span> Campos obligatorios</label> -->
+            </div>
+          </div>      
+
+        </div>
+         <!-- /.col -->
+       </div>
+
+      </form>
+      </div>
+
+       <div class="row invoice-info">
+        <div class="col-sm-12 invoice-col">
+          <div class="box box-success table-responsive">
+           <div id='div-responsive' class="table-responsive mailbox-messages">  
+            <table class="table table-hover table-striped">
+              <tr><th colspan="8"> <i class='fa fa-pie-chart'></i> Grafico de l&iacute;neas</th></tr>
+            </table>
+           </div>
+           <div>
+             <div class="box-body">
+              <!-- <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div> -->
+              <div id="container"></div>
+              </div>
+           </div>
+          </div>
+        </div>
+       </div>
+
+ </section>
+</div>
+ <!-- /.content -->
+ <!-- /.content -->
+<script>
+  $(document).ready(function(){
+  //$(function () {
+    $('#date').html($.datepicker.formatDate('dd/mm/yy', new Date()));
+    $('#datepicker').datepicker({ autoclose: true, format: 'dd/mm/yyyy' });
+
+    var visualizar = new VisualizarGraficoRCMes();
+    visualizar.funciones();
+    
+    $('#frm-1').validate({
+        rules: {
+            txtAnio: {
+                required: true,
+                range: [1900, 9999],
+                digits: true
+            }
+        },
+        messages: {
+          txtAnio: {
+              required: "Ingresar fecha valida",
+              range: "Ingresar fecha valida"
+          }
+        }
+    });
+
+  })
+</script>

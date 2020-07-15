@@ -1,0 +1,23 @@
+{
+ "module" :[
+  {    
+   "id": 6,
+   "description": "Menu",
+   "icon" : "fa fa-fire",
+   "options": [
+      { "id": 61,"description": "Calcular nivel del riesgo","icon" : "fa fa-circle-o","options": ""},
+      { "id": 62,"description": "Realizar proyeccion del riesgo","icon" : "fa fa-circle-o","options": ""},
+      { "id": 63,"description": "Actualizar riesgo","icon" : "fa fa-circle-o","options": ""},
+      { "id": 64,"description": "Actualizar control","icon" : "fa fa-circle-o","options": ""},
+      { "id": 65,"description": "Visualizar riesgos por nivel","icon" : "fa fa-circle-o","options": ""},
+      { "id": 66,"description": "Simular viabilidad de proyecto","icon" : "fa fa-circle-o","options": ""},
+      { "id": 67,"description": "Gestor de alertas","icon" : "fa fa-circle-o","options": ""},
+      { "id": 68,"description": "Visualizar riesgos sin control asignado","icon" : "fa fa-circle-o","options": ""},
+      { "id": 71,"description": "Distribucion de RC por area","icon" : "fa fa-circle-o","options": ""},
+      { "id": 72,"description": "Realizar Distribucion de RC","icon" : "fa fa-circle-o","options": ""},
+      { "id": 73,"description": "Montos de Planilla y Ventas por Tienda","icon" : "fa fa-circle-o","options": ""},
+      { "id": 74,"description": "Distribucion de RC por Area","icon" : "fa fa-circle-o","options": ""}            
+   ]
+  }
+ ] 
+}

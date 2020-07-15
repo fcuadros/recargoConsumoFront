@@ -1,0 +1,16 @@
+{
+ "module" :[
+  {    
+   "id": 6,
+   "description": "Menu",
+   "icon" : "fa fa-fire",
+   "options": [
+      { "id": 71,"description": "Distribucion de RC por area","icon" : "fa fa-circle-o","options": ""},
+      { "id": 72,"description": "Realizar Distribucion de RC","icon" : "fa fa-circle-o","options": ""},
+      { "id": 73,"description": "Montos de Planilla y Ventas","icon" : "fa fa-circle-o","options": ""},
+      { "id": 74,"description": "Distribucion de RC por Area","icon" : "fa fa-circle-o","options": ""},
+      { "id": 75,"description": "Distribucion de RC por Mes/Año","icon" : "fa fa-circle-o","options": ""}
+   ]
+  }
+ ] 
+}

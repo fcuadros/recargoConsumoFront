@@ -1,0 +1,196 @@
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Gestión de Recargo al Consumo
+        <small> </small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-th"></i> Home</a></li>
+        <li class="active">Gestión de RC</li>
+      </ol>
+    </section>
+
+ <div> 
+ <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-pencil"></i> Distribucion de Recargo al Consumo por Area
+            <small class="pull-right">Fecha: <span id='date'></span></small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+
+      <div class="row invoice-info">
+      <form name='frm-1' id='frm-1' method='post' onsubmit='' action=''> 
+       
+        <!-- title row -->
+        <div class="col-sm-12 invoice-col">
+         <div class="row">
+
+          <!-- <input id='txtId' type="hidden" class="form-control"> -->
+
+          <div class="col-sm-3 invoice-col">
+            <div class="form-group">
+              <label for="exampleInputEmail">A&ntilde;o</label>
+              <select id="cboAnio" name="anio" class="form-control">
+                <option value="0">Seleccione</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>                
+              </select>
+            </div>           
+          </div>
+
+          <div class="col-sm-3 invoice-col">
+            <div class="form-group">
+              <label for="exampleInputEmail">Mes</label>
+              <select id="cboMes" name="mes" class="form-control">
+                <option value="0">Seleccione</option>
+                <option value="01">Enero</option>
+                <option value="02">Febrero</option>
+                <option value="03">Marzo</option>
+                <option value="04">Abril</option>
+                <option value="05">Mayo</option>
+                <option value="06">Junio</option>
+                <option value="07">Julio</option>
+                <option value="08">Agosto</option>
+                <option value="09">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="col-sm-3 invoice-col">
+          <label for="exampleInputEmail">Ventas: </label> <span id='ventas'></span>
+          </div>
+
+          <div class="col-sm-12 invoice-col">
+            <div class="form-group">
+              <button id="btn-cargar" type="button" class="btn btn-success"> <i class="fa fa-save"></i> Cargar</button>
+              <!-- <button id="btn-clear" type="button" class="btn btn-default"> <i class='fa fa-eraser'></i> Limpiar </button> -->
+            </div>
+          </div>
+
+        </div>
+         <!-- /.col -->
+       </div>
+
+      </form>
+      </div>
+
+       <div class="row invoice-info">
+        <div class="col-sm-12 invoice-col">
+          <div class="box box-success">
+           <div id='div-responsive' class="table-responsive mailbox-messages">  
+            <table class="table table-hover table-striped">
+              <tr><th colspan="8"> <i class='fa fa-bars'></i> Lista de Areas</th></tr>
+            </table>
+           </div>
+           <div>
+            <div class="box-body">
+              <table id="tabla-datos" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Id Area</th>
+                  <th>Area</th>
+                  <th>Porcentaje</th>
+                  <th>Monto</th>
+                  <th>Editar</th>                  
+                </tr>
+                </thead>
+                <tbody id="body-listado">
+                </tbody>
+              </table>
+            </div>
+           </div>
+          </div>
+        </div>
+       </div>
+
+<!-- Panel de Actualizacion de Datos -->       
+      <div class="row invoice-info">
+      <form name='frm-2' id='frm-2' method='post' onsubmit='' action=''> 
+       
+        <!-- title row -->
+        <div class="col-sm-12 invoice-col">
+         <div class="row">
+
+          <input id='txtAreaId' type="hidden" class="form-control">
+          <input id='txtFecha' type="hidden" class="form-control">
+
+          <div class="col-sm-6 invoice-col">
+            <div class="form-group">
+              <label for="txtPorcentaje">Porcentaje</label>
+              <input id="txtPorcentaje" name="txtPorcentaje" type="number" class="form-control" placeholder="Ingrese porcentaje">
+            </div>
+          </div>
+
+          <div class="col-sm-6 invoice-col">
+            <div class="form-group">
+              <label for="txtMonto">Monto</label>
+              <input id="txtMonto" name="txtMonto" type="number" class="form-control" placeholder="Ingrese monto">
+            </div>
+          </div>           
+
+          <div class="col-sm-12 invoice-col">
+            <div class="form-group">
+              <button id="btn-calcular" type="button" class="btn btn-success"> <i class="fa fa-save"></i> Calcular</button>
+              <button id="btn-guardar" type="button" class="btn btn-success"> <i class="fa fa-save"></i> Guardar</button>
+              <!-- <button id="btn-clear" type="button" class="btn btn-default"> <i class='fa fa-eraser'></i> Limpiar </button> -->
+            </div>
+          </div>
+
+        </div>
+         <!-- /.col -->
+       </div>
+
+      </form>
+      </div>
+
+
+ </section>
+</div>
+ <!-- /.content -->
+
+<script>
+  $(document).ready(function(){
+  //$(function () {
+    $('#date').html($.datepicker.formatDate('dd/mm/yy', new Date()));    
+
+    var actualizar = new DistribucionPorArea();
+    actualizar.funciones();
+    //actualizar.loadAlerta();
+    
+    $('#frm-2').validate({
+        rules: {
+        	txtMonto: {
+                  required: true                  
+            },
+            txtPorcentaje: {
+                required: true,
+                range: [0, 1]
+            }           
+        },
+        messages: {
+            txtMonto: {
+                required: "Valores de monto invalidos"
+            },
+            txtPorcentaje: {
+                required: "Valores de porcentaje invalidos",
+                range: "Valores de porcentaje invalidos"
+            }
+        }
+    });
+
+  })
+  
+
+
+
+</script>
